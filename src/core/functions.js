@@ -8,12 +8,12 @@ var mutatorFunctions = ['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'un
 
 var accessorFunctions = ['concat', 'join', 'slice','toString','toLocaleString','some','every','includes','indexOf','lastIndexOf','forEach','map','entries','filter','find','findIndex','keys','values'];
 
-each.call(mutatorFunctions,function(item){
+each(mutatorFunctions,function(item){
     if(arr[item]){
         setMutator(ArrLike,item,arr[item]);
     }
 });
-each.call(accessorFunctions,function(item){
+each(accessorFunctions,function(item){
     if(arr[item]){
         setAccessor(ArrLike,item,arr[item]);
     }

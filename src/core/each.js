@@ -1,8 +1,8 @@
-function each(fn){
+function each(list,fn){
     for(var i = 0;i<this.length;i++){
-        fn(this[i],i);
+        fn(list[i],i);
     }
-    return this;
+    return list;
 }
 
 module.exports = each;

@@ -3,7 +3,7 @@ var likeArray = require("./likeArray");
 var isArray = require("./isArray");
 function ArrLike(arr) {
     function makeArray(arr,self){
-        each.call(arr,function(item){
+        each(arr,function(item){
             self.push(item);
         });
     }
