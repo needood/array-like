@@ -26,9 +26,6 @@ ArrLike.prototype.lastReturn = function(fn){
     fn.call(this,this.__lastReturn);
     return this;
 };
-ArrLike.prototype.new = function(){
-    return new ArrLike(arguments);
-};
 
 module.exports = ArrLike;
 
