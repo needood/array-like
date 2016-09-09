@@ -13,4 +13,7 @@ Arr.setMutator = function(name,fn){
 Arr.setAccessor = function(name,fn){
     return setAccessor(ArrLike,'$'+name,fn);
 };
+Arr.setGenerator = function(name,fn){
+    return setGenerator(ArrLike,'$'+name,fn);
+};
 module.exports = Arr;

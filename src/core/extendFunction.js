@@ -12,7 +12,15 @@ function setAccessor(constructor,name, fn) {
         return this;
     };
 }
+function setGenerator(constructor,name, fn) {
+    constructor.prototype[name] = function() {
+        var newArr = fn.apply(this, arguments);
+        newArr.__lastReturn = this;
+        return newArr;
+    };
+}
 module.exports = {
     setMutator: setMutator,
-    setAccessor: setAccessor
+    setAccessor: setAccessor,
+    setGenerator: setGenerator
 };
