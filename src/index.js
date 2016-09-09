@@ -1,6 +1,7 @@
 var extendFunction = require('./core/extendFunction');
 var setMutator = extendFunction.setMutator;
 var setAccessor = extendFunction.setAccessor;
+var setGenerator = extendFunction.setGenerator;
 var each = require("./core/each");
 var ArrLike = require("./core/ArrLike");
 require("./core/functions");
