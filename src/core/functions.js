@@ -23,7 +23,7 @@ ArrLike.prototype.getReturn = function(){
     return this.__lastReturn;
 };
 ArrLike.prototype.lastReturn = function(fn){
-    fn(this.__lastReturn);
+    fn.call(this,this.__lastReturn);
     return this;
 };
 
