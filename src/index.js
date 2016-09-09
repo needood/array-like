@@ -1,3 +1,4 @@
+require("./polyfill");
 var extendFunction = require('./core/extendFunction');
 var setMutator = extendFunction.setMutator;
 var setAccessor = extendFunction.setAccessor;
