@@ -19,6 +19,10 @@ each(accessorFunctions,function(item){
     }
 });
 
+ArrLike.prototype.log = function(){
+    console.log(this);
+    return this;
+};
 ArrLike.prototype.getReturn = function(){
     return this.__lastReturn;
 };
