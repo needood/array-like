@@ -28,6 +28,10 @@ ArrLike.prototype.log = function(){
 ArrLike.prototype.getReturn = function(){
     return this.__lastReturn;
 };
+ArrLike.prototype.setReturn = function(value){
+    this.__lastReturn = value;
+    return this;
+};
 ArrLike.prototype.lastReturn = function(fn){
     fn.call(this,this.__lastReturn);
     return this;
