@@ -20,7 +20,9 @@ each(accessorFunctions,function(item){
 });
 
 ArrLike.prototype.log = function(){
-    console.log(this);
+    var arg = arguments;
+    Array.prototype.push.call(arg,this);
+    console.log.apply(console,arg);
     return this;
 };
 ArrLike.prototype.getReturn = function(){
