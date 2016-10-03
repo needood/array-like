@@ -4,6 +4,7 @@ var each = require('./each');
 var extendFunction = require('./extendFunction');
 var setMutator = extendFunction.setMutator;
 var setAccessor = extendFunction.setAccessor;
+var setGenerator = extendFunction.setGenerator;
 var mutatorFunctions = ['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'unshift','copyWithin','fill'];
 
 var accessorFunctions = ['concat', 'join', 'slice','toString','toLocaleString','some','every','includes','indexOf','lastIndexOf','forEach','map','entries','filter','find','findIndex','keys','values'];
@@ -36,6 +37,9 @@ ArrLike.prototype.lastReturn = function(fn){
     fn.call(this,this.__lastReturn);
     return this;
 };
+setGenerator(ArrLike,'chain',function(){
+    return new ArrLike(this.__lastReturn);
+});
 
 module.exports = ArrLike;
 

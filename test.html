@@ -15,17 +15,24 @@
     </ul>
     <script src="./dist/bundle.js"></script>
     <script>
-        a = Arr(1,2,3,4,5).log("test");
-        b = [1,2,3,4,5];
+        a = Arr(1,2,3,4,5).log("log:");
+        b = Arr(1,2,3,4,5);
         Arr.setAccessor("addEventListener",function(){
             var args = arguments;
             this.forEach(function(item){
-                console.log(item);
                 item.addEventListener.apply(item,args);
             })
         })
         query = Arr.apply(Arr,document.querySelectorAll("li"))
         console.log(query);
+        query.$addEventListener('click',function(){
+            console.log('click',this);
+        });
+        b.filter(function(a){
+            return a<3;
+        }).chain().map(function(a){
+            return a+10;
+        }).chain().log("log,b:",b,"log,output:")
     </script>
 </body>
 </html>
