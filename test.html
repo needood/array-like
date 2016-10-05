@@ -28,11 +28,11 @@
         query.$addEventListener('click',function(){
             console.log('click',this);
         });
-        b.filter(function(a){
+        b.filter$(function(a){
             return a<3;
-        }).chain().map(function(a){
+        }).map$(function(a){
             return a+10;
-        }).chain().log("log,b:",b,"log,output:")
+        }).log("log,b:",b,"log,output:")
     </script>
 </body>
 </html>

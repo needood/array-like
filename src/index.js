@@ -11,8 +11,8 @@ function Arr() {
 Arr.setMutator = function(name,fn){
     return setMutator(ArrLike,'$'+name,fn);
 };
-Arr.setAccessor = function(name,fn){
-    return setAccessor(ArrLike,'$'+name,fn);
+Arr.setAccessor = function(name,fn,opt){
+    return setAccessor(ArrLike,'$'+name,fn,opt);
 };
 Arr.setGenerator = function(name,fn){
     return setGenerator(ArrLike,'$'+name,fn);

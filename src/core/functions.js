@@ -8,16 +8,25 @@ var setGenerator = extendFunction.setGenerator;
 var mutatorFunctions = ['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'unshift','copyWithin','fill'];
 
 var accessorFunctions = ['concat', 'join', 'slice','toString','toLocaleString','some','every','includes','indexOf','lastIndexOf','forEach','map','entries','filter','find','findIndex','keys','values'];
+var accessorFunctionsHasChain = ['concat','slice','map','filter','keys','values'];
 
 each(mutatorFunctions,function(item){
     if(arr[item]){
         setMutator(ArrLike,item,arr[item]);
     }
 });
-each(accessorFunctions,function(item){
+each(accessorFunctionsHasChain,function(item){
     if(arr[item]){
-        setAccessor(ArrLike,item,arr[item]);
+        setAccessor(ArrLike,item,arr[item],{hasChain:true});
     }
+});
+each(accessorFunctions,function(item){
+    if(typeof ArrLike.prototype[item] === 'function'){
+        if(arr[item]){
+            setAccessor(ArrLike,item,arr[item]);
+        }
+    }
+
 });
 
 ArrLike.prototype.log = function(){

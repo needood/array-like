@@ -1,3 +1,4 @@
+var ArrLike = require('./ArrLike.js');
 var arr = require('../var/arr');
 function setMutator(constructor,name, fn) {
     constructor.prototype[name] = function() {
@@ -6,17 +7,21 @@ function setMutator(constructor,name, fn) {
     };
 }
 
-function setAccessor(constructor,name, fn) {
+function setAccessor(constructor,name, fn,opt) {
+    opt = opt || {};
     constructor.prototype[name] = function() {
         this.__lastReturn = fn.apply(arr.slice.call(this), arguments);
         return this;
     };
+    if(opt.hasChain){
+        constructor.prototype[name+"$"] = function(){
+            return new ArrLike(fn.apply(arr.slice.call(this), arguments));
+        };
+    }
 }
 function setGenerator(constructor,name, fn) {
     constructor.prototype[name] = function() {
-        var newArr = fn.apply(this, arguments);
-        newArr.__lastReturn = this;
-        return newArr;
+        return fn.apply(this, arguments);
     };
 }
 module.exports = {

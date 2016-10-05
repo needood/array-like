@@ -8,6 +8,7 @@ function ArrLike(arr) {
         });
     }
     makeArray(arr,this);
+    this.__lastReturn = undefined;
     return this;
 }
 ArrLike.prototype = {
