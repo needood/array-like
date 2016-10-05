@@ -7,7 +7,7 @@ var setAccessor = extendFunction.setAccessor;
 var setGenerator = extendFunction.setGenerator;
 var mutatorFunctions = ['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'unshift','copyWithin','fill'];
 
-var accessorFunctions = ['concat', 'join', 'slice','toString','toLocaleString','some','every','includes','indexOf','lastIndexOf','forEach','map','entries','filter','find','findIndex','keys','values'];
+var accessorFunctions = [ 'join','toString','toLocaleString','some','every','includes','indexOf','lastIndexOf','forEach','entries','find','findIndex'];
 var accessorFunctionsHasChain = ['concat','slice','map','filter','keys','values'];
 
 each(mutatorFunctions,function(item){
