@@ -9,12 +9,19 @@ function setMutator(constructor,name, fn) {
 
 function setAccessor(constructor,name, fn,opt) {
     opt = opt || {};
-    constructor.prototype[name] = function() {
-        this.__lastReturn = fn.apply(arr.slice.call(this), arguments);
-        return this;
-    };
-    if(opt.hasChain){
-        constructor.prototype[name+"$"] = function(){
+    if(opt.forceChain){
+        chain(name);
+    }else{
+        constructor.prototype[name] = function() {
+            this.__lastReturn = fn.apply(arr.slice.call(this), arguments);
+            return this;
+        };
+        if(opt.hasChain){
+            chain(name+"$");
+        }
+    }
+    function chain(name){
+        constructor.prototype[name] = function(){
             return new ArrLike(fn.apply(arr.slice.call(this), arguments));
         };
     }
