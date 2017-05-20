@@ -1,4 +1,3 @@
-var objectAssign = require("object-assign");
 var ArrLike = require('./ArrLike.js');
 
 function setMutator(constructor, name, fn) {

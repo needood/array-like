@@ -18,7 +18,5 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "object-assign": "^4.1.1"
-  }
+  "dependencies": {}
 }

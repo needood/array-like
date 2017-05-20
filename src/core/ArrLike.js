@@ -1,9 +1,7 @@
-var objectAssign = require("object-assign");
 var likeArray = require("./likeArray");
 
 function ArrLike(arr) {
-    objectAssign(this, arr);
-    this.length = arr.length;
+    Array.prototype.push.apply(this, arr)
 }
 ArrLike.prototype = {
     constructor: ArrLike,
