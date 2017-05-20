@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
-"devDependencies": {
+  "devDependencies": {
     "browserify": "^13.1.0",
     "gulp": "^3.9.1",
     "gulp-size": "^2.1.0",
@@ -12,10 +12,13 @@
     "gulp-util": "^3.0.7",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
-},
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "object-assign": "^4.1.1"
+  }
 }

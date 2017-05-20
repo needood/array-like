@@ -1,32 +1,35 @@
+var objectAssign = require("object-assign");
 var ArrLike = require('./ArrLike.js');
-var arr = require('../var/arr');
-function setMutator(constructor,name, fn) {
+
+function setMutator(constructor, name, fn) {
     constructor.prototype[name] = function() {
         this.__lastReturn = fn.apply(this, arguments);
         return this;
     };
 }
 
-function setAccessor(constructor,name, fn,opt) {
+function setAccessor(constructor, name, fn, opt) {
     opt = opt || {};
-    if(opt.forceChain){
+    if (opt.forceChain) {
         chain(name);
-    }else{
+    } else {
         constructor.prototype[name] = function() {
-            this.__lastReturn = fn.apply(arr.slice.call(this), arguments);
+            this.__lastReturn = fn.apply(Array.prototype.slice.call(this), arguments);
             return this;
         };
-        if(opt.hasChain){
-            chain(name+"$");
+        if (opt.hasChain) {
+            chain(name + "$");
         }
     }
-    function chain(name){
-        constructor.prototype[name] = function(){
-            return new ArrLike(fn.apply(arr.slice.call(this), arguments));
+
+    function chain(name) {
+        constructor.prototype[name] = function() {
+            return new ArrLike(fn.apply(Array.prototype.slice.call(this), arguments));
         };
     }
 }
-function setGenerator(constructor,name, fn) {
+
+function setGenerator(constructor, name, fn) {
     constructor.prototype[name] = function() {
         return fn.apply(this, arguments);
     };

@@ -1,21 +1,15 @@
-var each = require("./each");
+var objectAssign = require("object-assign");
 var likeArray = require("./likeArray");
-var isArray = require("./isArray");
+
 function ArrLike(arr) {
-    function makeArray(arr,self){
-        each(arr,function(item){
-            self.push(item);
-        });
-    }
-    makeArray(arr,this);
-    this.__lastReturn = undefined;
-    return this;
+    objectAssign(this, arr);
+    this.length = arr.length;
 }
 ArrLike.prototype = {
     constructor: ArrLike,
     length: 0,
-    __isArrLike:true,
-    version:"1.0"
+    __isArrLike: true,
+    version: "1.0.1"
 };
 
 module.exports = ArrLike;

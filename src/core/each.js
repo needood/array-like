@@ -1,7 +1,5 @@
-function each(list,fn){
-    for(var i = 0;i<list.length;i++){
-        fn(list[i],i);
-    }
+function each(list, fn) {
+    Array.prototype.forEach.apply(list, fn)
     return list;
 }
 
