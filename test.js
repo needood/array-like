@@ -46,3 +46,7 @@ while (i--) {
     Array.prototype.push.apply(testArr, arr)
 }
 console.log('splice and push', (new Date).getTime() - t);
+Array.prototype.splice.call(testArr, 0)
+Array.prototype.push.apply(testArr, [90])
+
+console.log(testArr[0], testArr[1])
